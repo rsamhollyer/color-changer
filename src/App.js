@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Slider from "./Slider";
+import FakeDiv from "./FakeDiv";
+import { useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [red, setRed] = useState(255); //red
+	const [green, setGreen] = useState(255); //green
+	const [blue, setBlue] = useState(255); //blue
+	const appStyle = { backgroundColor: `rgb(${red},${green},${blue})` };
+	return (
+		<FakeDiv className="fakey-body" style={appStyle}>
+			<Slider color={red} set={setRed} label="R:" />
+			<br />
+			<Slider color={green} set={setGreen} label="G:" />
+			<br />
+			<Slider color={blue} set={setBlue} label="B:" />
+		</FakeDiv>
+	);
 }
 
 export default App;
